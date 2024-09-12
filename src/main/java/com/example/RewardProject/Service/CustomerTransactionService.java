@@ -59,7 +59,7 @@ import java.util.stream.Collectors;
     }
 
     public List<PointResponse> getAllCustomerPoints() {
-        List<CustomerPoints> customerPointsList = pointsRepository.findAll();
+        List<CustomerPoints> customerPointsList = (List<CustomerPoints>) pointsRepository.findAll();
         return customerPointsList.stream()
                 .map(x -> new PointResponse(x.getPoints()))
                 .collect(Collectors.toList());

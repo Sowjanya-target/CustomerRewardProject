@@ -29,13 +29,13 @@ INSERT INTO customers (username, password) VALUES
                                                ('Riya', 'mypassword');
 
 INSERT INTO CustomerTransactions (customer_id, spend_details, amount, date) VALUES
-                                                                  (1, 'Shopping',120.50, '2024-06-15'),
+                                                                  (1, 'Shopping',120.00, '2024-06-15'),
                                                                   (1, 'Food',75.00, '2024-07-20'),
                                                                   (2, 'Shopping',55.00, '2024-06-25'),
                                                                   (2, 'Hosptial', 95.00, '2024-07-05');
 
 INSERT INTO customer_points (customer_id, points,"month","year") VALUES
-                                                                   (1, 6, 2024, 42),
+                                                                   (1, 6, 2024, 90),
                                                                    (1, 7, 2024, 15),
-                                                                   (2, 6, 2024, 6),
-                                                                   (2, 7, 2024, 9);
+                                                                   (2, 6, 2024, 5),
+                                                                   (2, 7, 2024, 45);

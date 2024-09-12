@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -25,6 +26,6 @@ public class CustomerTransaction {
 
     private Double amount;
 
-    private LocalDate date;
+    private Date date;
 
 }
