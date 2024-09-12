@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "aa66af55-352e-48d8-b682-de6b83bb7a3a",
+		"name": "Rewards Program API",
+		"description": "Postman collection for testing the Rewards Program API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38287364"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"testpassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"testpassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate Reward Points",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"description": "Replace <token> with the JWT token obtained from login"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/transactions/calculatePoints?customerId=1&startDate=2024-06-01&endDate=2024-06-30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions",
+						"calculatePoints"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "1",
+							"description": "ID of the customer"
+						},
+						{
+							"key": "startDate",
+							"value": "2024-06-01",
+							"description": "Start date of the transaction period"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-06-30",
+							"description": "End date of the transaction period"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Points by Customer ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/points/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"points",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Points of All Customer ID Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/points/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"points",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
