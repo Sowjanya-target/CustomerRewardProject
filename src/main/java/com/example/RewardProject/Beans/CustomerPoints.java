@@ -7,18 +7,21 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
+@Table(name="CUSTOMER_POINTS")
 public class CustomerPoints {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @Column(name="CUSTOMER_ID")
+    private Long customerID;
 
-    private Integer points;
+    @Column(name="REWARDMONTH")
+    private int rewardMonth;
 
-    private Integer month;
-    private Integer year;
+    @Column(name="REWARDYEAR")
+    private int rewardYear;
 
+    @Column(name="REWARDPOINTS")
+    private int rewardPoints;
 }

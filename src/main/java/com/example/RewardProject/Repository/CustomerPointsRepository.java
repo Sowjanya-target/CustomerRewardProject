@@ -1,21 +1,25 @@
 package com.example.RewardProject.Repository;
 
 import com.example.RewardProject.Beans.CustomerPoints;
+import com.example.RewardProject.Beans.CustomerTransaction;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface CustomerPointsRepository extends CrudRepository<CustomerPoints, Long> {
+public interface CustomerPointsRepository extends JpaRepository<CustomerPoints, Long> {
 
 
+    @Query("SELECT rp FROM CustomerPoints rp WHERE rp.customerID = :customerId AND rp.rewardMonth = :month AND rp.rewardYear = :year")
+    CustomerPoints findByCustomerIdAndMonthAndYear(@Param("customerId") Long customerId, @Param("month") String month, @Param("year") int year);
 
-    @Query(value = "SELECT * FROM CustomerPoints WHERE customer_id = :customerId AND month = :month AND year = :year", nativeQuery = true)
-    CustomerPoints findByCustomerIdAndMonthAndYear(@Param("customerId") Long customerId, @Param("month") Integer month, @Param("year") Integer year);
+    List<CustomerPoints> findByCustomerID(Long customerID);
 
 
-    List<CustomerPoints> findByCustomerId(Long customerId);
 }
+

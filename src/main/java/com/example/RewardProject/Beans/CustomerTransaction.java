@@ -5,27 +5,37 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Setter
 @Getter
+@Table(name = "CUSTOMERTRANSACTIONS")
 public class CustomerTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "CUSTOMER_ID")
+    private Long customerID;
 
-    @Getter
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer  customer;
-
+    @Column(name = "SPEND_DETAILS")
     private String spendDetails;
 
+    @Column(name = "AMOUNT")
     private Double amount;
 
-    private Date date;
+    @Column(name = "DATE")
+    private LocalDate date;
 
+    public CustomerTransaction(Long customerID, String spendDetails, Double amount, LocalDate date) {
+        this.customerID = customerID;
+        this.spendDetails = spendDetails;
+        this.amount = amount;
+        this.date = date;
+    }
+
+    public CustomerTransaction() {
+
+    }
 }

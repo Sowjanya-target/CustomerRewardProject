@@ -14,14 +14,11 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface CustomerTransactionRepository extends CrudRepository<CustomerTransaction, Long> {
+public interface CustomerTransactionRepository extends JpaRepository<CustomerTransaction, Long> {
 
 
-    @Query("SELECT cp FROM CustomerTransaction cp WHERE cp.customer.id = :customerId AND cp.date BETWEEN :startDate AND :endDate")
-    List<CustomerTransaction> findByCustomerIdAndDateBetween(
-            @Param("customerId") Long customerId,
-            @Param("startDate") LocalDate startDate,
-            @Param("endDate") LocalDate endDate);
+    @Query("SELECT ct FROM CustomerTransaction ct where ct.customerID  =:customerId AND ct.date BETWEEN :startDate AND :endDate ")
+    List<CustomerTransaction> findByCustomerIdAndDateBetween(@Param("customerId") Long customerId, @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 }
 
 
