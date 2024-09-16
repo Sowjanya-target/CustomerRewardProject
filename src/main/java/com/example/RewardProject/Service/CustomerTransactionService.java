@@ -27,6 +27,7 @@ public class CustomerTransactionService {
         try {
             List<CustomerTransaction> transactions = transactionRepository.findByCustomerIdAndDateBetween(customerId, startDate, endDate);
 
+            //Logic to Calculate reward points
             for (CustomerTransaction transaction : transactions) {
                 double amount = transaction.getAmount();
                 if (amount > 100) {
@@ -98,5 +99,4 @@ public class CustomerTransactionService {
         }
         return allCustomerPoints;
     }
-
 }

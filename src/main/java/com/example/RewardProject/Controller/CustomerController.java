@@ -65,7 +65,7 @@ public class CustomerController {
             return ResponseEntity.ok("Customer registered successfully");
 
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            logger.error(ex.getMessage());
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }

@@ -1,7 +1,6 @@
 package com.example.RewardProject.Controller;
 
 
-import com.example.RewardProject.Response.PointResponse;
 import com.example.RewardProject.Service.CustomerTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
-import java.util.List;
+
 import java.util.Map;
 
 @Controller
